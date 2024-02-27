@@ -1,0 +1,171 @@
+:root {
+    --app-name-height: 55px;
+    --search-height: 50px;
+}
+
+.sidebar-toggle {
+    width: auto;
+}
+
+.sidebar {
+    font-family: 'Segoe UI' !important;
+}
+
+.app-name,
+.search,
+.sidebar-nav {
+    position: fixed;
+    width: inherit;
+    border-right: 1px solid #eee;
+    background-color: white;
+}
+
+.app-name {
+    top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 35px;
+    height: var(--app-name-height);
+}
+
+.search {
+    top: var(--app-name-height);
+    padding: 6px 0px !important;
+    border-top: 1px solid #eee;
+    z-index: 21;
+    height: var(--search-height);
+}
+
+.search .input-wrap {
+    height: 100%;
+}
+
+.search .input-wrap::before {
+    /* 
+     * Unicode Symbol:   1F50D
+     * Variant Selector: FE0E ( VS15 )
+     */
+    content: '\1F50D\FE0E';
+    margin-left: 15px;
+    margin-right: 6px;
+}
+
+.search input {
+    border: none !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+    padding: 6px 0px !important;
+}
+
+::placeholder {
+    opacity: 0.7;
+}
+
+.search input:focus {
+    border: none !important;
+    border-bottom: 1px solid darkgray !important;
+    box-shadow: none !important;
+}
+
+.search .clear-button {
+    display: block !important;
+    cursor: default !important;
+    opacity: 0;
+}
+
+.search .clear-button.show {
+    opacity: 1;
+    cursor: pointer !important;
+}
+
+.results-panel {
+    overflow-y: auto;
+    max-height: 40vh;
+    background-color: white;
+    padding: 0px 6px;
+    border-bottom: 5px solid #e8e8e8;
+}
+
+.sidebar-nav {
+    top: calc(var(--app-name-height) + var(--search-height));
+    overflow-y: auto;
+    height: calc(100% - var(--app-name-height) - var(--search-height));
+}
+
+.sidebar-nav>ul {
+    margin: 0px 15px;
+}
+
+.sidebar-nav li {
+    margin: 0px;
+    margin-top: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    text-indent: 6px;
+}
+
+
+.sidebar-nav li.is-active>a {
+    color: #42b983;
+    background-color: #0000001a;
+}
+
+.sidebar-nav ul li a {
+    padding: 3px 0px;
+    border-radius: .25rem;
+    font-weight: 600;
+    color: #555;
+    transition: background-color .2s cubic-bezier(.08, .52, .52, 1);
+}
+
+.sidebar-nav ul li.active>a {
+    border: none;
+    background-color: #0000001a;
+}
+
+.sidebar-nav ul li>a:hover {
+    text-decoration: none;
+    background-color: #0000001a;
+}
+
+.sidebar-nav::-webkit-scrollbar,
+.results-panel::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track,
+.results-panel::-webkit-scrollbar-track {
+    background: #e8e8e8;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb,
+.results-panel::-webkit-scrollbar-thumb {
+    border-radius: 99em;
+    background: darkgray;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover,
+.results-panel::-webkit-scrollbar-thumb:hover {
+    background: gray;
+}
+
+/* docsify-sidebar-collapse */
+.sidebar-nav ul:not(.app-sub-sidebar)>li:not(.file) {
+    cursor: pointer;
+    transition: max-Height .2s ease-out;
+}
+
+.sidebar-nav ul:not(.app-sub-sidebar)>li:not(.file)::before {
+    font-family: "Font Awesome 6 Free";
+    content: '\f105';
+    float: right;
+    transition: transform .2s ease-out;
+}
+
+.sidebar-nav ul:not(.app-sub-sidebar)>li.open::before {
+    transform: rotate(90deg);
+}
+
+.sidebar-nav ul:not(.app-sub-sidebar)>li.collapse::after {
+    
+}
