@@ -98,6 +98,9 @@
     font-weight: 600;
     color: #555;
     text-indent: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
