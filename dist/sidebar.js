@@ -22,7 +22,12 @@ function highlightPageTitleInSidebar() {
                 activeLI.classList.add("is-active");
 
                 const sidebarNav = document.querySelector(".sidebar-nav");
-                sidebarNav.scrollTop = getPrevSibling(activeLI, 3).offsetTop;
+
+                if (activeLI.parentElement.parentElement.isSameNode(sidebarNav)) {
+                    sidebarNav.scrollTop = 0;
+                } else {
+                    sidebarNav.scrollTop = activeLI.parentElement.parentElement.offsetTop;
+                }
 
                 throw new Error("No error. The title in the sidebar is the same as the page title.");
             }
